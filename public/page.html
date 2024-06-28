@@ -29,6 +29,8 @@
             </tbody>
         </table>
     </div>
+    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
+
 
 </div>
 
@@ -64,6 +66,14 @@
 
     fetchPosts();
 });
+
+function myFunction() {
+  
+  var input, filter, name, li, i, txtValue;
+  input = document.getElementById('myInput');
+  filter = input.value.toUpperCase();
+  
+}
 
     </script>
 </body>
