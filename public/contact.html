@@ -9,20 +9,24 @@
 <h1>Contact Form</h1>
 </center>
 <div class="container">
-  <form>
+  <form id="form-reset" onsubmit="return validateForm()" method="post">
     <label for="fname">First Name</label>
-    <input type="text" id="fname" name="firstname" placeholder="Your name..">
+    <input type="text" id="fname" name="firstname" placeholder="Your name.." required>
+    <span id="name-error" class="error-message"></span>
 
     <label for="lname">Email</label>
-    <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+    <input type="text" id="email" name="lastname" placeholder="Your last name.." required>
+    <span id="email-error" class="error-message"></span>
 
     <label for="phone">Phone Number</label>
-    <input type="text" id="lname" name="PhoneNumber" placeholder="your phone number:">
-
-    <label for="country">Team Name</label>
-    <select id="country" name="country">
-      <option value="australia">Select your favourite Team..</option>
-      <option value="australia">Australia</option>
+    <input type="text" id="phone" name="PhoneNumber" onclick="return validate()" placeholder="your phone number:" required>
+    
+    <label for="country" >Team Name</label>
+    
+    <select id="country" name="country"  onclick="dis()" required>
+     
+      <option value="australia" >Select your favourite Team..</option>
+      <option value="australia" >Australia</option>
       <option value="canada">India</option>
       <option value="usa">England</option>
       <option value="usa">Bangladesh</option>
@@ -30,18 +34,20 @@
       <option value="usa">South Africa</option>
     </select>
 
-    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+    <div id="show">
+    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" >
     <label for="vehicle1">Do you want to receive whatsapp notifications? </label><br>
     
-    <p>Do you like T20?</p>
+    <p id="like">Do you like T20?</p>
     <input type="radio" id="html" name="fav_language" value="HTML">
     <label for="html">Yes</label><br>
     <input type="radio" id="css" name="fav_language" value="CSS">
     <label for="css">No</label><br>
-
-    <input type="submit" value="Submit">
+  </div>
+    <input type="submit" value="Submit" onclick="Submit()">
+    <input type = "button" onclick = "newFunction()" value = "Reset" >
   </form>
 </div>
-
+<script src="script.js"></script>
 </body>
 </html>
