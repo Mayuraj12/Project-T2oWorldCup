@@ -13,6 +13,8 @@ class PlayersController < ApplicationController
   # GET /players/new
   def new
     @player = Player.new
+    flash[:notice] = "Player saved successfully"
+    redirect_to @player
   end
 
   # GET /players/1/edit
