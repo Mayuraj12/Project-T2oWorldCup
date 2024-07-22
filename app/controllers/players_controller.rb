@@ -4,6 +4,18 @@ class PlayersController < ApplicationController
   # GET /players or /players.json
   def index
     @players = Player.all
+    
+    if params[:team_id].present?
+      @players = @players.where(team_id: params[:team_id])
+    end
+
+    if params[:player_name].present?
+      @players = @players.where("name LIKE ?", "%#{params[:player_name]}%")
+    end
+
+    if params[:age_from].present? && params[:age_to].present?
+      @players = @players.where(age: params[:age_from]..params[:age_to])
+    end
   end
 
   # GET /players/1 or /players/1.json
@@ -13,8 +25,6 @@ class PlayersController < ApplicationController
   # GET /players/new
   def new
     @player = Player.new
-    flash[:notice] = "Player saved successfully"
-    redirect_to @player
   end
 
   # GET /players/1/edit
@@ -38,35 +48,23 @@ class PlayersController < ApplicationController
 
   # PATCH/PUT /players/1 or /players/1.json
   def update
-    respond_to do |format|
-      if @player.update(player_params)
-        format.html { redirect_to player_url(@player), notice: "Player was successfully updated." }
-        format.json { render :show, status: :ok, location: @player }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @player.errors, status: :unprocessable_entity }
-      end
-    end
+  @player = Player.find(params[:id])
+  if @player.update(player_params)
+    redirect_to @player, notice: 'Player was successfully updated.'
+  else
+    render :edit
+  end
   end
 
-  # DELETE /players/1 or /players/1.json
   def destroy
-    @player.destroy!
-
-    respond_to do |format|
-      format.html { redirect_to players_url, notice: "Player was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    @player = Player.find(params[:id])
+    @player.destroy
+    redirect_to players_url, notice: 'Player was successfully destroyed.'
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_player
-      @player = Player.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def player_params
-      params.require(:player).permit(:name, :age, :position, :team_id_id, :role, :is_captain, :is_active, :description)
-    end
+  def player_params
+    params.require(:player).permit(:name, :age, :position, :team_id, :role, :is_captain, :is_active, :description)
+  end
 end

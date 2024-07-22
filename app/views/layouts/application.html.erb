@@ -2,7 +2,6 @@
 <html>
   <head>
     <title>T20WorldCup</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -11,8 +10,25 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header class="bg-dark text-white py-3">
+      <div class="container">
+        <h1>T20_World_Cup</h1>
+        <nav>
+          
+          <%= link_to 'Players', players_path, class: "text-white" %> |
+          <%= link_to 'Teams', teams_path, class: "text-white" %>
+        </nav>
+      </div>
+    </header>
+
+    <div class="container mt-4">
+      <%= yield %>
+    </div>
+
+    <footer class="bg-dark text-white py-3 mt-4">
+      <div class="container text-center">
+        &copy; <%= Time.current.year %> ICC, t20WOrldCup App.
+      </div>
+    </footer>
   </body>
-  <%= render 'layouts/footer' %>
-  <%= render 'layouts/header'%>
 </html>
