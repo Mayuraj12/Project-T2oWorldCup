@@ -1,0 +1,132 @@
+body {font-family: Arial, Helvetica, sans-serif;
+  position: relative;
+  min-height: 100vh;
+  background: url('/images/t.jpg') no-repeat center center fixed;
+  background-size: cover;
+  z-index: 1;
+
+}
+* {box-sizing: border-box;}
+.custom-navbar {
+background-color: #420dff; 
+font-weight: bolder;
+}
+.center-table {
+margin: 0 auto; 
+width: 50%; 
+}
+.cont{
+text-align: center;
+font-weight: bolder;
+color: #420dff;
+  
+}
+h3{
+  text-align: center;
+  font-size: larger;
+  color: aqua;
+}
+input[type=text], select, textarea {
+width: 100%;
+padding: 12px;
+border: 1px solid #ccc;
+border-radius: 4px;
+box-sizing: border-box;
+margin-top: 6px;
+margin-bottom: 16px;
+resize: vertical;
+}
+.carousel-indicators button {
+background-color: #000; /* Darker indicators */
+}
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+background-color: rgb(0, 0, 0); /* Semi-transparent background */
+border-radius: 50%; /* Circular controls */
+}
+input[type=submit] {
+background-color: #000000;
+color: white;
+padding: 12px 20px;
+border: none;
+border-radius: 4px;
+cursor: pointer;
+font-size: 20px;
+}
+
+input[type=submit]:hover {
+background-color: #200912;
+}
+
+.container {
+border-radius: 5px;
+background-color: rgba(16, 92, 255, 0.829);
+padding: 20px;
+width: 60%;
+}
+.footer{
+  position: relative;
+  color: #420dff;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  background-color: transparent;
+
+}
+.ball-body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 120px;
+}
+
+.box {
+  width: 100px;
+  height: 100px;
+  background-color:transparent;
+  /* border: 2px solid black; */
+  position: relative;
+  overflow: hidden; 
+}
+
+.ball {
+  width: 50px;
+  height: 50px;
+  background-color: rgb(115, 140, 252);
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  
+}
+
+@keyframes bounce {
+  0%, 100% {
+      bottom: 0%;
+  }
+  50% {
+      bottom: 70%;
+  }
+}
+
+.box:hover .ball {
+  animation-play-state: running;
+  transform: translateX(-50%);
+  animation: bounce 2s infinite;
+}
+.team{
+  background-color:transparent;
+  color: #81ff81;
+  font-weight: bolder;
+  position: relative;
+  padding: 20px;
+}
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  [class*="col-"] {
+    width: 100%;
+  }
+}
+@media only screen and (max-width: 600px) {
+  body {
+    background-color: lightblue;
+  }
+}

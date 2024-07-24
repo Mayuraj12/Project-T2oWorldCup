@@ -2,12 +2,32 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="/home/dispatchtrack/T2oWorldCup/app/assets/stylesheets/style.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-<center>
-<h1>Contact Form</h1>
-</center>
+
+<nav class="navbar navbar-expand-sm custom-navbar sticky-top">
+  <div class="container-fluid">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="team.html">Teams</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="contact.html">Contact</a>
+        </li>
+      </ul>
+  </div>
+</nav>
+<br>
+  
+<h1 class="cont">Contact Form</h1>
+
 <div class="container">
   <form id="form-reset" onsubmit="return validateForm()" method="post">
     <label for="fname">First Name</label>
@@ -37,13 +57,14 @@
     <div id="show">
     <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" >
     <label for="vehicle1">Do you want to receive whatsapp notifications? </label><br>
-    
+    <br>
     <p id="like">Do you like T20?</p>
     <input type="radio" id="html" name="fav_language" value="HTML">
     <label for="html">Yes</label><br>
     <input type="radio" id="css" name="fav_language" value="CSS">
     <label for="css">No</label><br>
   </div>
+  <br>
     <input type="submit" value="Submit" onclick="Submit()">
     <input type = "button" onclick = "newFunction()" value = "Reset" >
   </form>
