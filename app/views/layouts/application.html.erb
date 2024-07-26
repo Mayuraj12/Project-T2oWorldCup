@@ -1,34 +1,23 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>T20WorldCup</title>
+    <title>MyApp</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+    <%= javascript_include_tag 'nested_form', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
-    <header class="bg-dark text-white py-3">
-      <div class="container">
-        <h1>T20_World_Cup</h1>
-        <nav>
-          
-          <%= link_to 'Players', players_path, class: "text-white" %> |
-          <%= link_to 'Teams', teams_path, class: "text-white" %>
-        </nav>
-      </div>
-    </header>
-
-    <div class="container mt-4">
-      <%= yield %>
-    </div>
-
-    <footer class="bg-dark text-white py-3 mt-4">
-      <div class="container text-center">
-        &copy; <%= Time.current.year %> ICC, t20WOrldCup App.
-      </div>
-    </footer>
+    <nav>
+      <% if user_signed_in? %>
+        <%= link_to 'Edit profile', edit_user_registration_path %> |
+        <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+      <% else %>
+        <%= link_to 'Sign up', new_user_registration_path %> |
+        <%= link_to 'Login', new_user_session_path %>
+      <% end %>
+    </nav>
+    <%= yield %>
   </body>
 </html>

@@ -1,23 +1,23 @@
-<div class="container mt-4">
-  <h1>Team Details</h1>
+<h1>Team Details</h1>
 
-  <div class="mb-3">
-    <strong>Name:</strong>
-    <p><%= @team.name %></p>
-  </div>
-  <div class="mb-3">
-    <strong>Country:</strong>
-    <p><%= @team.country %></p>
-  </div>
-  <div class="mb-3">
-    <strong>Founded:</strong>
-    <p><%= @team.founded %></p>
-  </div>
-  <div class="mb-3">
-    <strong>Description:</strong>
-    <p><%= @team.description %></p>
-  </div>
+<p>
+  <strong>Date:</strong>
+  <%= @team.name%>
+</p>
 
-  <%= link_to 'Edit', edit_team_path(@team), class: 'btn btn-warning' %>
-  <%= link_to 'Back', teams_path, class: 'btn btn-secondary' %>
-</div>
+<p>
+  <strong>Location:</strong>
+  <%= @team.country%>
+</p>
+
+<h3>Players</h3>
+<ul class="list-group">
+  <% @team.players.each do |player| %>
+    <li class="list-group-item">
+      <strong><%= player.name %></strong> - <%= player.position %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to 'Edit', edit_team_path(@team), class: 'btn btn-warning' %>
+<%= link_to 'Back', teams_path, class: 'btn btn-secondary' %>
